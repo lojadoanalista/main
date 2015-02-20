@@ -1,0 +1,28 @@
+GIT
+  remote: https://github.com/cloudwalkio/da_funk.git
+  revision: 97c4b4dc97739a6605c52c561f90a3d186d868fb
+  specs:
+    da_funk (0.3.2)
+      bundler (>= 1.7)
+      rake (~> 10.4.2)
+      yard (~> 0.8)
+
+GIT
+  remote: https://github.com/scalone/walk-simplehttp-poc.git
+  revision: 4e25bd8e1b2cf9f45db1f0c72e9e213a21c817b6
+  specs:
+    simplehttp (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.4.2)
+    yard (0.8.7.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  da_funk!
+  rake
+  simplehttp!

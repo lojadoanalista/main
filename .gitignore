@@ -1,0 +1,6 @@
+*.o
+*.mrb
+coverage/*
+.bundle
+stats
+stats/*
