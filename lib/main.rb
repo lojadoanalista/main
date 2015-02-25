@@ -10,7 +10,7 @@ class Main < Device
       Device::Display.print("Serial #{Device::System.serial}", 2, 4)
       Device::Display.print(" 1 - Initialization", 5)
 
-      CloudWalkInit.perform if getc == "1"
+      Cloudwalk.perform if getc == "1"
       # TIMEOUT GETC
       # FLOAT sleep
       # EXIT
