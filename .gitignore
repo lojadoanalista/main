@@ -4,3 +4,4 @@ coverage/*
 .bundle
 stats
 stats/*
+out/*
