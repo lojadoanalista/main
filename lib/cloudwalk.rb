@@ -2,13 +2,15 @@ class Cloudwalk
   include Device::Helper
 
   def self.perform
-    if application = ParamsDat.executable_app
+    if application = Device::ParamsDat.executable_app
       application.execute
+    elsif Device::ParamsDat.apps.size > 1
+      Device::ParamsDat.application_menu.execute
     else
       self.logical_number
       self.communication
       if Device::ParamsDat.update_apps
-        Device::Runtime.execute(Device::ParamsDat.application_menu)
+        Device::ParamsDat.application_menu.execute
       end
     end
   end
