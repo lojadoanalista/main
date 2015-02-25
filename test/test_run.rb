@@ -1,3 +1,0 @@
-
-DaFunk::Test.run
-
