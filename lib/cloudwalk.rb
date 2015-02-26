@@ -1,18 +1,31 @@
 class Cloudwalk
   include Device::Helper
 
-  def self.perform
+  def self.boot
+    if Device::Network.configured?
+      if attach
+        Device::Notification.start
+      end
+    end
+  end
+
+  def self.start
     if application = Device::ParamsDat.executable_app
       application.execute
     elsif Device::ParamsDat.apps.size > 1
       application = Device::ParamsDat.application_menu
       application.execute if application
     else
-      self.logical_number
-      self.communication
-      if Device::ParamsDat.update_apps
-        Device::ParamsDat.application_menu.execute
-      end
+      self.wizard
+    end
+  end
+
+  def self.wizard
+    self.logical_number
+    self.communication
+    if Device::ParamsDat.update_apps
+      Device::Notification.start
+      Device::ParamsDat.application_menu.execute
     end
   end
 
