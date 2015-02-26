@@ -1,6 +1,8 @@
 require 'simplehttp'
 
 class Main < Device
+  include Device::Helper
+
   def self.call
     Device::Display.clear
     Device::Display.print("CloudWalk", 2, 5)
