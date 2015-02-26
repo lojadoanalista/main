@@ -4,6 +4,7 @@ class Main < Device
   include Device::Helper
 
   def self.call
+    Cloudwalk.boot
     Device::Display.clear
     Device::Display.print("CloudWalk", 2, 5)
     Device::Display.print("Serial #{Device::System.serial}", 3, 4)
@@ -14,8 +15,8 @@ class Main < Device
       Device::Display.print("#{time.year}/#{time.month}/#{time.day}  #{time.hour}:#{time.min}:#{time.sec}", 0, 0)
       puts ""
       case getc(900)
-      when "1"
-        Cloudwalk.perform
+      when "1" #ENTER
+        Cloudwalk.start
       when Device::IO::CANCEL
         break
       end
