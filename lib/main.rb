@@ -2,18 +2,21 @@ require 'simplehttp'
 
 class Main < Device
   def self.call
-    super
+    Device::Display.clear
+    Device::Display.print("CloudWalk", 2, 5)
+    Device::Display.print("Serial #{Device::System.serial}", 3, 4)
+    Device::Display.print(" 1 - Initialization", 5)
 
-    app_loop do
-      Device::Display.clear
-      Device::Display.print("CloudWalk", 1, 5)
-      Device::Display.print("Serial #{Device::System.serial}", 2, 4)
-      Device::Display.print(" 1 - Initialization", 5)
-
-      Cloudwalk.perform if getc == "1"
-      # TIMEOUT GETC
-      # FLOAT sleep
-      # EXIT
+    Device.app_loop do
+      time = Time.now
+      Device::Display.print("#{time.year}/#{time.month}/#{time.day}  #{time.hour}:#{time.min}:#{time.sec}", 0, 0)
+      puts ""
+      case getc(900)
+      when "1"
+        Cloudwalk.perform
+      when Device::IO::CANCEL
+        break
+      end
     end
   end
 
