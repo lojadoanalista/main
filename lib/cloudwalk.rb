@@ -60,8 +60,8 @@ class Cloudwalk
     # WIFI Office
     Device::Setting.authentication = Device::Network::AUTH_WPA_WPA2_PSK
     Device::Setting.cipher         = Device::Network::PARE_CIPHERS_TKIP
-    Device::Setting.password       = "planobesemfio"
-    Device::Setting.essid          = "PlanoBe"
+    Device::Setting.password       = "cloudwalksemfio"
+    Device::Setting.essid          = "CloudWalk"
     Device::Setting.channel        = "0"
 
     #GPRS
@@ -71,7 +71,6 @@ class Cloudwalk
     #Device::Setting.user           = "vivo"
     #Device::Setting.pass           = "vivo"
   end
-
 
   def self.set_gprs_config
     Device::Setting.apn  = form("Apn  (#{Device::Setting.apn}): ", 0, 127, "", false)
