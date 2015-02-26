@@ -5,7 +5,8 @@ class Cloudwalk
     if application = Device::ParamsDat.executable_app
       application.execute
     elsif Device::ParamsDat.apps.size > 1
-      Device::ParamsDat.application_menu.execute
+      application = Device::ParamsDat.application_menu
+      application.execute if application
     else
       self.logical_number
       self.communication
