@@ -41,6 +41,8 @@ class Cloudwalk
         Device::Setting.user  = form("User (#{Device::Setting.user}): ", 0, 127, "", false)
         Device::Setting.pass  = form("Pass (#{Device::Setting.pass}): ", 0, 127, "", false)
       end
+
+      Device::Setting.network_configured = "1"
     end
   end
 
