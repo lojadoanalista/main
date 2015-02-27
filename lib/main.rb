@@ -8,7 +8,7 @@ class Main < Device
 
     Device.app_loop do
       time = Time.now
-      Device::Display.print_bitmap("./main/walk.bmp",0,0)
+      Device::Display.print_bitmap("./shared/walk.bmp",0,0)
       Device::Display.print("#{time.year}/#{time.month}/#{time.day}  #{time.hour}:#{time.min}:#{time.sec}", 6, 1)
       puts ""
       case getc(900)
