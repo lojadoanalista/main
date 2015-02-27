@@ -83,11 +83,13 @@ class Cloudwalk
     #Device::Setting.apn            = "zap.vivo.com.br"
     #Device::Setting.user           = "vivo"
     #Device::Setting.pass           = "vivo"
+    Device::Setting.network_configured = "1"
   end
 
   def self.set_gprs_config
     Device::Setting.apn  = form("Apn  (#{Device::Setting.apn}): ", 0, 127, "", false)
     Device::Setting.user = form("User (#{Device::Setting.user}): ", 0, 127, "", false)
     Device::Setting.pass = form("Pass (#{Device::Setting.pass}): ", 0, 127, "", false)
+    Device::Setting.network_configured = "1"
   end
 end
