@@ -49,10 +49,10 @@ class Cloudwalk
         Device::Setting.cipher         = form(" Cipher (#{Device::Setting.cipher}): ", 0, 127, "", false)
         Device::Setting.mode           = form(" Mode (#{Device::Setting.mode}): ", 0, 127, "", false)
       else
-        Device::Setting.media = Device::Network::MEDIA_GPRS
-        Device::Setting.apn   = form("Apn  (#{Device::Setting.apn}): ", 0, 127, "", false)
-        Device::Setting.user  = form("User (#{Device::Setting.user}): ", 0, 127, "", false)
-        Device::Setting.password  = form("Pass (#{Device::Setting.pass}): ", 0, 127, "", false)
+        Device::Setting.media     = Device::Network::MEDIA_GPRS
+        Device::Setting.apn       = form("Apn  (#{Device::Setting.apn}): ", 0, 127, "", false)
+        Device::Setting.user      = form("User (#{Device::Setting.user}): ", 0, 127, "", false)
+        Device::Setting.password  = form("Password (#{Device::Setting.password}): ", 0, 127, "", false)
       end
 
       Device::Setting.network_configured = "1"
