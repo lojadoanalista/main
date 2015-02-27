@@ -4,7 +4,7 @@ class AdminConfiguration
   def self.menu
     Device::Display.clear
     Device::Display.print("Admin Configuration", 0, 0)
-    Device::Display.print(" 1 - Wi-fi Config", 1, 0)
+    Device::Display.print(" 1 - Comm Config", 1, 0)
     Device::Display.print(" 2 - Update Apps", 2, 0)
     Device::Display.print(" 3 - Host", 3, 0)
     Device::Display.print(" 4 - Logical Number", 4, 0)
