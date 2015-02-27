@@ -91,4 +91,3 @@ class Cloudwalk
     Device::Setting.pass = form("Pass (#{Device::Setting.pass}): ", 0, 127, "", false)
   end
 end
-

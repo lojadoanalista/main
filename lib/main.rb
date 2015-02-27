@@ -2,21 +2,20 @@ require 'simplehttp'
 
 class Main < Device
   include Device::Helper
-
   def self.call
     Cloudwalk.boot
     Device::Display.clear
-    Device::Display.print("CloudWalk", 2, 5)
-    Device::Display.print("Serial #{Device::System.serial}", 3, 4)
-    Device::Display.print(" 1 - Initialization", 5)
 
     Device.app_loop do
       time = Time.now
-      Device::Display.print("#{time.year}/#{time.month}/#{time.day}  #{time.hour}:#{time.min}:#{time.sec}", 0, 0)
+      Device::Display.print_bitmap("./main/walk.bmp",0,0)
+      Device::Display.print("#{time.year}/#{time.month}/#{time.day}  #{time.hour}:#{time.min}:#{time.sec}", 6, 1)
       puts ""
       case getc(900)
-      when "1" #ENTER
+      when Device::IO::ENTER
         Cloudwalk.start
+      when Device::IO::F1
+        AdminConfiguration.menu
       when Device::IO::CANCEL
         break
       end
@@ -27,4 +26,3 @@ class Main < Device
     "0.0.1"
   end
 end
-
