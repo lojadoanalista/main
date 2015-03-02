@@ -42,17 +42,17 @@ class Cloudwalk
                    {"WIFI" => true, "GPRS" => false})
       if media
         Device::Setting.media = Device::Network::MEDIA_WIFI
-        Device::Setting.authentication = form(" Authentication (#{Device::Setting.authentication}): ", 0, 127, "", false)
-        Device::Setting.password       = form(" Password (#{Device::Setting.password}): ", 0, 127, "", false)
-        Device::Setting.essid          = form(" Essid (#{Device::Setting.essid}): ", 0, 127, "", false)
-        Device::Setting.channel        = form(" Channel (#{Device::Setting.channel}): ", 0, 127, "", false)
-        Device::Setting.cipher         = form(" Cipher (#{Device::Setting.cipher}): ", 0, 127, "", false)
-        Device::Setting.mode           = form(" Mode (#{Device::Setting.mode}): ", 0, 127, "", false)
+        Device::Setting.authentication = form("Authentication", min: 0, :max 127, default: Device::Setting.authentication)
+        Device::Setting.password       = form("Password", min: 0, max: 127, default: Device::Setting.password)
+        Device::Setting.essid          = form("Essid", min: 0, max: 127, default: Device::Setting.essid)
+        Device::Setting.channel        = form("Channel", min: 0, max: 127, default: Device::Setting.channel)
+        Device::Setting.cipher         = form("Cipher", min: 0, max: 127, default: Device::Setting.cipher)
+        Device::Setting.mode           = form("Mode", min: 0, max: 127, default: Device::Setting.mode)
       else
-        Device::Setting.media     = Device::Network::MEDIA_GPRS
-        Device::Setting.apn       = form("Apn  (#{Device::Setting.apn}): ", 0, 127, "", false)
-        Device::Setting.user      = form("User (#{Device::Setting.user}): ", 0, 127, "", false)
-        Device::Setting.password  = form("Password (#{Device::Setting.password}): ", 0, 127, "", false)
+        Device::Setting.media    = Device::Network::MEDIA_GPRS
+        Device::Setting.apn      = form("Apn", min: 0, max: 127, max: Device::Setting.apn)
+        Device::Setting.user     = form("User", min: 0, max: 127, max: Device::Setting.user)
+        Device::Setting.password = form("Password", min: 0, max: 127, max: Device::Setting.password)
       end
 
       Device::Setting.network_configured = "1"
