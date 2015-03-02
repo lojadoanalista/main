@@ -65,16 +65,16 @@ class Cloudwalk
       if media
         Device::Setting.media = Device::Network::MEDIA_WIFI
         Device::Setting.authentication = menu("Authentication", WIFI_AUTHENTICATION_OPTIONS.merge(default: Device::Setting.authentication))
-        Device::Setting.password       = form("Password", min: 0, max: 127, default: Device::Setting.password)
-        Device::Setting.essid          = form("Essid", min: 0, max: 127, default: Device::Setting.essid)
-        Device::Setting.channel        = form("Channel", min: 0, max: 127, default: Device::Setting.channel)
+        Device::Setting.password       = form("Password", :min => 0, :max => 127, :default => Device::Setting.password)
+        Device::Setting.essid          = form("Essid", :min => 0, :max: 127, :default => Device::Setting.essid)
+        Device::Setting.channel        = form("Channel", :min => 0, :max => 127, :default => Device::Setting.channel)
         Device::Setting.cipher         = menu("Cipher", WIFI_CIPHERS_OPTIONS.merge(default: Device::Setting.cipher))
         Device::Setting.mode           = menu("Mode", WIFI_MODE_OPTIONS.merge(default: Device::Setting.mode))
       else
         Device::Setting.media    = Device::Network::MEDIA_GPRS
-        Device::Setting.apn      = form("Apn", min: 0, max: 127, max: Device::Setting.apn)
-        Device::Setting.user     = form("User", min: 0, max: 127, max: Device::Setting.user)
-        Device::Setting.password = form("Password", min: 0, max: 127, max: Device::Setting.password)
+        Device::Setting.apn      = form("Apn", :min => 0, :max => 127, :default => Device::Setting.apn)
+        Device::Setting.user     = form("User", :min => 0, :max => 127, :default => Device::Setting.user)
+        Device::Setting.password = form("Password", :min => 0, :max => 127, :default => Device::Setting.password)
       end
 
       Device::Setting.network_configured = "1"
