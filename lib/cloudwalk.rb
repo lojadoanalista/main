@@ -68,8 +68,8 @@ class Cloudwalk
         Device::Setting.password       = form("Password", min: 0, max: 127, default: Device::Setting.password)
         Device::Setting.essid          = form("Essid", min: 0, max: 127, default: Device::Setting.essid)
         Device::Setting.channel        = form("Channel", min: 0, max: 127, default: Device::Setting.channel)
-        Device::Setting.cipher         = menu("Cipher", min: 0, max: 127, WIFI_CIPHERS_OPTIONS.merge(default: Device::Setting.cipher))
-        Device::Setting.mode           = menu("Mode", min: 0, max: 127, WIFI_MODE_OPTIONS.merge(default: Device::Setting.mode))
+        Device::Setting.cipher         = menu("Cipher", WIFI_CIPHERS_OPTIONS.merge(default: Device::Setting.cipher))
+        Device::Setting.mode           = menu("Mode", WIFI_MODE_OPTIONS.merge(default: Device::Setting.mode))
       else
         Device::Setting.media    = Device::Network::MEDIA_GPRS
         Device::Setting.apn      = form("Apn", min: 0, max: 127, max: Device::Setting.apn)
