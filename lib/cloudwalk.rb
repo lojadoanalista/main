@@ -52,8 +52,7 @@ class Cloudwalk
   end
 
   def self.logical_number
-    number = Device::Setting.logical_number
-    Device::Setting.logical_number = form("Logical Number (#{number}): ", 0, 4, number, true)
+    Device::Setting.logical_number = form("Logical Number", :min => 0, :max => 127, :default => Device::Setting.logical_number)
   end
 
   def self.communication
