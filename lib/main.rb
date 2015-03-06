@@ -16,7 +16,7 @@ class Main < Device
         Cloudwalk.start
       when Device::IO::F1
         AdminConfiguration.menu
-      when Device::IO::CANCEL
+      when Device::IO::F2
         break
       end
     end
