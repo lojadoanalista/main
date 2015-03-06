@@ -58,13 +58,13 @@ class AdminConfiguration
 
   def self.closing
     Device::Display.clear
-    i = 1
+    i = 3
     loop do
       Device::Display.print("Rebooting...",3,3)
       Device::Display.print("#{i}")
       sleep(1)
-      i += 1
-      break if i > 3
+      i -= 1
+      break if i < 1
     end
   end
 end
