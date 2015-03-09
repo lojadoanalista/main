@@ -9,6 +9,7 @@ class AdminConfiguration
     Device::Display.print(" 3 - Logical Number", 3, 0)
     Device::Display.print(" 4 - Set Clock", 4, 0)
     Device::Display.print(" 5 - Show Config",5,0)
+    Device::Display.print(" 6 - Versions",6,0)
     key = getc
     if key == "1"
       Cloudwalk.communication
@@ -56,7 +57,10 @@ class AdminConfiguration
       time.hwclock
     elsif key == "5"
       show_config
+    elsif key == "6"
+      versions
     end
+    Device::Display.clear
   end
 
   def self.closing
@@ -111,6 +115,14 @@ class AdminConfiguration
       Device::Display.print("PW:#{Device::Setting.password}", 3, 0)
       getc
     end
+  end
+
+  def self.versions
     Device::Display.clear
+    Device::Display.print("Versions",0,0)
+    Device::Display.print("Application:#{Main.version}", 2, 0)
+    Device::Display.print("API:#{Device.api_version}", 3, 0)
+    Device::Display.print("Framework:#{Device.version}", 4, 0)
+    getc
   end
 end
