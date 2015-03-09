@@ -8,6 +8,7 @@ class AdminConfiguration
     Device::Display.print(" 2 - Update Apps", 2, 0)
     Device::Display.print(" 3 - Logical Number", 3, 0)
     Device::Display.print(" 4 - Set Clock", 4, 0)
+    Device::Display.print(" 5 - Show Config",5,0)
     key = getc
     if key == "1"
       Cloudwalk.communication
@@ -53,6 +54,8 @@ class AdminConfiguration
       s = Device::IO.get_format(1, 2, option  = {:mode => :numbers})
       time = Time.new(year,month,day,h,m,s)
       time.hwclock
+    elsif key == "5"
+      show_config
     end
   end
 
@@ -66,5 +69,48 @@ class AdminConfiguration
       i -= 1
       break if i < 1
     end
+  end
+
+  def self.get_password
+    Device::Display.clear
+    Device::Display.print("Admin Password:", 0, 0)
+    password = Device::IO.get_format(1, 5, options = {:mode => :secret})
+
+    if password == "55555"
+      menu
+    else
+      Device::Display.clear
+      Device::Display.print("Incorrect Password", 0, 1)
+      getc
+      true
+    end
+  end
+
+  def self.show_config
+    Device::Display.clear
+
+    if Network.connected?
+      connected = "Connected"
+    else
+      connected = "Not Connected"
+    end
+
+    if Device::Setting.media == Device::Network::MEDIA_WIFI
+      Device::Display.print("Status:#{connected}", 0, 0)
+      Device::Display.print("Auth:#{Device::Setting.authentication}", 1, 0)
+      Device::Display.print("Essid:#{Device::Setting.essid}", 2, 0)
+      Device::Display.print("PW:#{Device::Setting.password}", 3, 0)
+      Device::Display.print("Channel:#{Device::Setting.channel}", 4, 0)
+      Device::Display.print("Chiper:#{Device::Setting.cipher}", 5, 0)
+      Device::Display.print("Mode:#{Device::Setting.mode}", 6,0)
+      getc
+    else
+      Device::Display.print("Connected?:#{connected}", 0, 0)
+      Device::Display.print("Apn:#{Device::Setting.apn}", 1, 0)
+      Device::Display.print("User:#{Device::Setting.user}", 2, 0)
+      Device::Display.print("PW:#{Device::Setting.password}", 3, 0)
+      getc
+    end
+    Device::Display.clear
   end
 end
