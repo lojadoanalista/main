@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/cloudwalkio/da_funk.git
-  revision: de7738d0c827fb9fa7d8441e99e92e3a78f4fd38
+  revision: 9674266dc5bd22510fe31373d46292c4d66ac658
   specs:
     da_funk (0.4.1)
       bundler (>= 1.7)
