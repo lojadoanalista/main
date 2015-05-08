@@ -8,16 +8,30 @@ class Main < Device
 
     Device.app_loop do
       time = Time.now
-      Device::Display.print_bitmap("./shared/walk.bmp",0,0)
-      Device::Display.print("#{time.month}/#{time.day}/#{time.year}  #{time.hour}:#{time.min}:#{time.sec}", 6, 1)
-      puts ""
-      case getc(900)
-      when Device::IO::ENTER
-        Cloudwalk.start
-      when Device::IO::F1
-        AdminConfiguration.get_password
-      when Device::IO::F2
-        break
+      if !File.exists("app_name")
+        # Manual use of the main app
+        Device::Display.print_bitmap("./shared/walk.bmp",0,0)
+        Device::Display.print("#{time.month}/#{time.day}/#{time.year}  #{time.hour}:#{time.min}:#{time.sec}", 6, 1)
+        puts ""
+        case getc(900)
+        when Device::IO::ENTER
+          Cloudwalk.start
+        when Device::IO::F1
+          AdminConfiguration.get_password
+        when Device::IO::F2
+          break
+        end
+      else
+        file = File.open("app_name", "r")
+        app  = file.read
+        p "APP:#{app}"
+        # Let's goo straight to the given app
+        self.logical_number
+        self.communication
+        if Device::ParamsDat.update_apps
+          Device::Notification.start
+          Device::ParamsDat.executable_apps.each { |_app| p "APP: #{_app}" }
+        end
       end
     end
   end
