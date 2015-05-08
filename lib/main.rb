@@ -22,6 +22,7 @@ class Main < Device
           break
         end
       else
+        # TODO: We also need a way to retrieve the logical number
         file = File.open("app_name", "r")
         app  = file.read
         p "APP:#{app}"
