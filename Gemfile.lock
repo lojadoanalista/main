@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/cloudwalkio/da_funk.git
-  revision: 2b733d1fefd0e3399fd0a3855c682435813a9ce3
+  revision: a978fae87850b08ab1e332825a378a9f93df1e36
   specs:
-    da_funk (0.4.7)
+    da_funk (0.4.9)
       bundler (~> 1.7)
+      cloudwalk_handshake (~> 0.3)
       rake (~> 10.4)
       yard (~> 0.8)
 
@@ -16,6 +17,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    cloudwalk_handshake (0.4.0)
     rake (10.4.2)
     yard (0.8.7.6)
 
