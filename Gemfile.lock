@@ -16,7 +16,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    cloudwalk_handshake (0.2.0)
     rake (10.4.2)
     yard (0.8.7.6)
 
@@ -24,7 +23,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cloudwalk_handshake
   da_funk!
   rake
   simplehttp!
