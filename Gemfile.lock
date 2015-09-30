@@ -17,7 +17,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    cloudwalk_handshake (0.4.2)
+    cloudwalk_handshake (0.4.3)
     rake (10.4.2)
     yard (0.8.7.6)
 
