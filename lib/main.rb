@@ -9,9 +9,9 @@ class Main < Device
     Device.app_loop do
       time = Time.now
       Device::Display.print_bitmap("./shared/walk.bmp",0,0)
-      Device::Display.print("#{time.month}/#{time.day}/#{time.year}  #{time.hour}:#{time.min}:#{time.sec}", 6, 1)
+      Device::Display.print(" #{time.day}/#{time.month}/#{time.year}   #{time.hour}:#{rjust(time.min, 2, "0")}", 6, 0)
       puts ""
-      case getc(900)
+      case getc(2000)
       when Device::IO::ENTER
         Cloudwalk.start
       when Device::IO::F1
